@@ -48,7 +48,7 @@ def run_processing(delay, D, P):
             count("*").alias("total_crimes"),
             count(when(col("Arrest") == True, True)).alias("crimes_with_arrest"),
             count(when(col("Domestic") == True, True)).alias("domestic_violence_crimes"),
-            count(when(col("INDEX CODE") != "", True)).alias("fbi_index_crimes")
+            count(when(col("INDEX CODE") == "I", True)).alias("fbi_index_crimes")
         )
 
     # Ustawienie trybu programu
